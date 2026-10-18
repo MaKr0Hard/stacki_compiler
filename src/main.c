@@ -5,7 +5,7 @@
 
 void open_input(char* input_file_name) {
     FILE *input_file = fopen(input_file_name, "r");
-    char[4096] line;
+    char line[4096];
 
     while (fgets(line, sizeof(line), input_file)) {
 
