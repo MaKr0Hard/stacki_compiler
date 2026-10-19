@@ -6,7 +6,12 @@
 
 char program_name[2048];
 
-char** vars = NULL;
+typedef struct {
+    char* name;
+    int type;
+} Var;
+
+Var* vars;
 
 char* convert_string_to_lower(char* string) {
     for (int i = 0; i < strlen(string); i++) {
@@ -31,6 +36,10 @@ void open_input(const char* input_file_name) {
 
             } else if (strcmp(token_1, "var") == 0) {
                 //TODO: use variables array
+            } else if (strcmp(token_1, "array") == 0) {
+
+            } else if (strcmp(token_1, "fn") == 0) {// Just for this time btw, id do not believe in postfix types
+
             }
 
         }
