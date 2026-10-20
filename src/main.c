@@ -20,6 +20,10 @@ char* convert_string_to_lower(char* string) {
     return string;
 }
 
+char /*used as an 8_byte value*/ is_keyword(const char* token, const char* line) {
+
+}
+
 void open_input(const char* input_file_name) {
     FILE *input_file = fopen(input_file_name, "r"); //TODO: check if file exists
     char line[4096];
