@@ -1,5 +1,5 @@
 main:
-	gcc src/main.c -o build/compiler
+	gcc src/main.c src/lexer.c -o build/compiler
 
 init :
 	mkdir build
