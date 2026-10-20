@@ -6,39 +6,27 @@
 
 char program_name[2048];
 
-// For lexer
-typedef enum {
-    not_an_identifier, //We don't have cpp here, so he have to do with this, this could be done in something like inheritence
-    LET,
-    ARRAY,
-    FN, //Just put this into prectice
-    IF,
+enum TokenType { //Wait, just put some of OUR code
+    LPARENTHESE,
+    RPARENTHESE,
+    NUMBER,
+    //STRING,
+    IDENTIFIER,
+
+    EOF_TOKEN
+};
+
+struct Token {
+    enum TokenType type;
+    union {
+        int number;
+        //struct StringSlice string;
+        char identifier[64];
+    };
+};
 
 
-}identifier;
-
-typedef struct {
-    char* name;
-    int type;
-} Var;
-Var* vars;
-
-typedef enum {
-    not_a_value_not_a_variable,
-
-} values_variables;
-
-typedef enum {
-    not_an_operator,
-
-} operators;
-
-typedef enum {
-    not_a_delimiter,
-
-} delimiters;
-
-
+typedef struct Token token_t;
 
 char* convert_string_to_lower(char* string) {
     for (int i = 0; i < strlen(string); i++) {
