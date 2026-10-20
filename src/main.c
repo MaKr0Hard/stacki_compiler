@@ -21,11 +21,10 @@ char* convert_string_to_lower(char* string) {
 }
 
 void open_input(const char* input_file_name) {
-    FILE *input_file = fopen(input_file_name, "r");
+    FILE *input_file = fopen(input_file_name, "r"); //TODO: check if file exists
     char line[4096];
 
     while (fgets(line, sizeof(line), input_file)) {
-        //TODO: use strtok() to parse the code and stop at semicolons
         char* token_1 = strtok(line, " ");
         if (token_1 == NULL) {
             break;
@@ -36,11 +35,11 @@ void open_input(const char* input_file_name) {
 
             } else if (strcmp(token_1, "var") == 0) {
                 //TODO: use variables array
-            } else if (strcmp(token_1, "array") == 0) {
+            } else if (strcmp(token_1, "array") == 0) { //TODO: Make rules for that (identifier, keyword, etc.), basically lexer
 
             } else if (strcmp(token_1, "fn") == 0) {// Just for this time btw, id do not believe in postfix types
 
-            }
+            } //TODO: When doing the lexer, every condition should be an identifier and if there is another condition inside, send the condtion as an array of tokens and do the same thing inside a function.
 
         }
 
@@ -55,7 +54,7 @@ int main(int argc, char** argv) { //TODO : Add multi-file support
                                                      //-o : output
         switch (opt) {
             case 's':
-                input = (char *)malloc(strlen(optarg)); //TODO: free me
+                input = (char *)malloc(strlen(optarg));
                 strcpy(input, optarg);
                 puts(input);
                 break;
